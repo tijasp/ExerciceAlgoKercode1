@@ -66,21 +66,40 @@
 
 <script type="text/javascript">
     function doYouLikeIt() {
-        // CODE HERE !
-    }
+        if (isPoisoned()) {
+            console.log("Game over ...");
+        } else if (isSalty() && isSweet()) {
+            console.log("Beurk... c'est pas bon !");
+        } else if (isSalty()) {
+            console.log("Hum la bonne sou-soupe salée !");
+        } else if (isSweet()) {
+            console.log("Hum la bonne sou-soupe sucrée !");
+        } else {
+            console.log("Pas de sou-sous pas de sou-soupe !");
+        };
+    };
 
     function isSalty() {
-        let carrots = document.getElementById("carrots").checked;
-        // CODE HERE !
-    }
+        const carrots = document.getElementById("carrots").checked;
+        const potatoes = document.getElementById("potatoes").checked;
+        const tomatoes = document.getElementById("tomatoes").checked;
+
+        if (carrots || potatoes || tomatoes) return true;
+    };
 
     function isSweet() {
-        // CODE HERE !
-    }
+        const blackChocolate = document.getElementById("black-chocolate").checked;
+        const whiteChocolate = document.getElementById("white-chocolate").checked;
+
+        if (blackChocolate || whiteChocolate) return true;
+    };
 
     function isPoisoned() {
-        // CODE HERE !
-    }
+        const cyanide = document.getElementById("cyanide").checked;
+        const vitriol = document.getElementById("vitriol").checked;
+
+        if (cyanide || vitriol) return true;
+    };
 </script>
 </body>
 </html>
