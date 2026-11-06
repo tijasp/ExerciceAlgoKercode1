@@ -44,7 +44,19 @@
         let articles = document.getElementById("articles");
         let selectedArticle = articles.options[articles.selectedIndex].value;
 
-        // CODE HERE !
+        const prices = {
+            one: 30,
+            two: 50
+        };
+
+        let cartPrice = prices[selectedArticle];
+        const promoCodeContainer = document.getElementById("promotion");
+        
+        if (promoCodeContainer.value === VALID_PROMOTION_CODE) {
+            cartPrice *= 0.9;
+        };
+
+        console.log(`Le montant de votre commande est de ${cartPrice.toFixed(2)}€`)
     }
 </script>
 </body>
