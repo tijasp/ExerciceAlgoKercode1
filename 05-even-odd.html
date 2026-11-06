@@ -39,8 +39,17 @@
 
         let number = document.getElementById("number").value;
 
-        // CODE HERE !
-    }
+        function isNumberEven(nbr) {
+            nbr /= 2;
+            if (Number.isInteger(nbr)) return true;
+        };
+
+        if (isNumberEven(number)) {
+            console.log(`${number} est pair`);
+        } else {
+            console.log(`${number} est impair`);
+        };
+    };
 </script>
 </body>
 </html>
