@@ -37,7 +37,26 @@
     function verifyAge() {
         let age = document.getElementById("age").value;
 
-        // CODE HERE !
+        const cardContainer = document.querySelector(".card");
+        const buttonContainer = document.querySelector("button");
+        let ageConfirmationDiv = document.getElementById("age-message");
+
+        if (!ageConfirmationDiv) {
+            ageConfirmationDiv = document.createElement("div");
+            ageConfirmationDiv.id = "age-message";
+        }
+
+        if (age >= 18) {
+            console.log("Bienvenue sur le site");
+            ageConfirmationDiv.textContent = "Bienvenue sur le site";
+            ageConfirmationDiv.classList = "text-success";
+        } else {
+            console.log("Vous devez être majeur pour accèder au site !");
+            ageConfirmationDiv.textContent = "Vous devez être majeur pour accèder au site !";
+            ageConfirmationDiv.classList = "text-danger";
+        };
+
+        cardContainer.insertBefore(ageConfirmationDiv, buttonContainer);
     }
 </script>
 </body>
