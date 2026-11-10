@@ -31,14 +31,39 @@
     </select>
 
     <br/>
-    <button type="button" class="btn btn-primary">
+    <button type="button" class="btn btn-primary" onclick="convert()">
         Connaître la valeur en USD->EUR ou EUR->USD
     </button>
 </div>
 
 <script type="text/javascript">
-    // 1 EUR = 1.0729 USD
-    // CODE HERE !
+    function convert() {
+        const amountToConvert = document.getElementById("value").value
+        const currencies = document.getElementById("currencies");
+        const actualCurrency = currencies.options[currencies.selectedIndex].value;
+        const futureCurrency = actualCurrency === "eur" ? "usd" : "eur";
+
+        const getActualExchangeRate = async () => {
+            const api = `https://api.frankfurter.dev/v2/providers/ecb/rate/${actualCurrency}/${futureCurrency}`;
+            const response = await fetch(api);
+            if (!response.ok) {
+                throw new Error("Response status: ", response.status);
+            };
+
+            return response.json();
+        };
+
+        function exchange(amount, rate) {
+            const convertedAmount = amount * rate;
+            alert(`${amountToConvert} ${actualCurrency.toUpperCase()}  ->  ${convertedAmount} ${futureCurrency.toUpperCase()}`);
+        }
+
+        getActualExchangeRate()
+            .then((response) => exchange(amountToConvert, response["rate"]))
+            .catch((error) => console.error(error))
+    };
+
+
 </script>
 </body>
 </html>
