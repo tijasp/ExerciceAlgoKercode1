@@ -84,21 +84,21 @@
         const potatoes = document.getElementById("potatoes").checked;
         const tomatoes = document.getElementById("tomatoes").checked;
 
-        if (carrots || potatoes || tomatoes) return true;
+        return (carrots || potatoes || tomatoes);
     };
 
     function isSweet() {
         const blackChocolate = document.getElementById("black-chocolate").checked;
         const whiteChocolate = document.getElementById("white-chocolate").checked;
 
-        if (blackChocolate || whiteChocolate) return true;
+        return (blackChocolate || whiteChocolate);
     };
 
     function isPoisoned() {
         const cyanide = document.getElementById("cyanide").checked;
         const vitriol = document.getElementById("vitriol").checked;
 
-        if (cyanide || vitriol) return true;
+        return (cyanide || vitriol);
     };
 </script>
 </body>
